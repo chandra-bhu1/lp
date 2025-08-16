@@ -84,16 +84,20 @@ function App() {
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col items-center justify-start px-4 py-16 min-h-[calc(100vh-80px)]">
-        {/* Title and Chat Input in a narrower, centered container */}
-        <div className="w-full max-w-3xl mx-auto">
-          <div className="text-center mb-12">
+        {/* Spacer to push content down */}
+        <div className="h-24"></div>
+        
+        {/* Title and Chat Input grouped together */}
+        <div className="w-full max-w-3xl mx-auto mb-32">
+          {/* Title positioned just above input */}
+          <div className="text-center mb-6">
             <h2 className="text-4xl md:text-5xl font-semibold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent leading-tight pb-3">
               What are we solving today?
             </h2>
           </div>
 
           {/* Chat Input Container */}
-          <div className="relative mt-16 mb-32">
+          <div className="relative">
             <div className="bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-600/50 shadow-2xl">
               <div className="flex items-end p-4 space-x-3">
                 {/* File Upload */}
