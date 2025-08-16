@@ -64,7 +64,78 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white relative">
+      {/* Model Selector Dropdown - Positioned at top level */}
+      {showModelSelector && (
+        <div className="fixed inset-0 z-[9999]" onClick={() => setShowModelSelector(false)}>
+          <div 
+            className="absolute top-[180px] right-[calc(50%-384px+60px)] bg-gray-800/95 backdrop-blur-sm rounded-lg border border-gray-600/50 shadow-xl min-w-48"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="p-3 border-b border-gray-600/50">
+              <h3 className="font-medium text-sm text-gray-300">Select Model</h3>
+            </div>
+            <div className="p-2">
+              {models.map((model) => (
+                <button
+                  key={model.id}
+                  onClick={() => {
+                    if (model.available) {
+                      setSelectedModel(model.id);
+                      setShowModelSelector(false);
+                    }
+                  }}
+                  className={`w-full flex items-center justify-between p-3 rounded-lg transition-colors ${
+                    model.available 
+                      ? 'hover:bg-gray-700/50' 
+                      : 'opacity-50 cursor-not-allowed'
+                  }`}
+                >
+                  <div className="flex items-center space-x-2">
+                    {model.id === 'v2' ? (
+                      <div className="w-4 h-4 flex items-center justify-center">
+                        <Atom size={16} style={{
+                          background: 'linear-gradient(45deg, #60a5fa, #f472b6)',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text'
+                        }} />
+                      </div>
+                    ) : (
+                      <div className="w-4 h-4 flex items-center justify-center">
+                        <div className={`w-2 h-2 rounded-full ${
+                          selectedModel === model.id ? 'bg-green-500' : 'bg-gray-600'
+                        }`} />
+                      </div>
+                    )}
+                    <span className="text-sm font-bold text-white">
+                      {model.name}
+                    </span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    {!model.available && (
+                      <div className="flex items-center text-xs">
+                        <span className={model.id === 'v2' ? 'font-medium' : 'text-gray-400'} style={model.id === 'v2' ? {
+                          background: 'linear-gradient(45deg, #60a5fa, #f472b6)',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text'
+                        } : {}}>
+                          Coming Soon{model.id === 'v2' ? '...' : ''}
+                        </span>
+                      </div>
+                    )}
+                    {selectedModel === model.id && model.available && (
+                      <Check size={14} className="text-green-500" />
+                    )}
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <header className="flex items-center justify-between p-4 border-b border-gray-700/50">
         <div className="flex items-center space-x-3">
@@ -134,78 +205,13 @@ function App() {
                 </div>
 
                 {/* Model Selector */}
-                <div className="flex-shrink-0 relative z-50">
+                <div className="flex-shrink-0">
                   <button
                     onClick={() => setShowModelSelector(!showModelSelector)}
                     className="flex items-center justify-center w-10 h-10 bg-gray-700/50 hover:bg-gray-600/50 rounded-lg transition-colors"
                   >
                     <Settings size={18} />
                   </button>
-
-                  {showModelSelector && (
-                    <div className="absolute top-full mt-2 right-0 bg-gray-800/95 backdrop-blur-sm rounded-lg border border-gray-600/50 shadow-xl min-w-48 z-[100]">
-                      <div className="p-3 border-b border-gray-600/50">
-                        <h3 className="font-medium text-sm text-gray-300">Select Model</h3>
-                      </div>
-                      <div className="p-2">
-                        {models.map((model) => (
-                          <button
-                            key={model.id}
-                            onClick={() => {
-                              if (model.available) {
-                                setSelectedModel(model.id);
-                                setShowModelSelector(false);
-                              }
-                            }}
-                            className={`w-full flex items-center justify-between p-3 rounded-lg transition-colors ${
-                              model.available 
-                                ? 'hover:bg-gray-700/50' 
-                                : 'opacity-50 cursor-not-allowed'
-                            }`}
-                          >
-                            <div className="flex items-center space-x-2">
-                              {model.id === 'v2' ? (
-                                <div className="w-4 h-4 flex items-center justify-center">
-                                  <Atom size={16} style={{
-                                    background: 'linear-gradient(45deg, #60a5fa, #f472b6)',
-                                    WebkitBackgroundClip: 'text',
-                                    WebkitTextFillColor: 'transparent',
-                                    backgroundClip: 'text'
-                                  }} />
-                                </div>
-                              ) : (
-                                <div className="w-4 h-4 flex items-center justify-center">
-                                  <div className={`w-2 h-2 rounded-full ${
-                                    selectedModel === model.id ? 'bg-green-500' : 'bg-gray-600'
-                                  }`} />
-                                </div>
-                              )}
-                              <span className="text-sm font-bold text-white">
-                                {model.name}
-                              </span>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              {!model.available && (
-                                <div className="flex items-center text-xs">
-                                  <span className={model.id === 'v2' ? 'font-medium' : 'text-gray-400'} style={model.id === 'v2' ? {
-                                    background: 'linear-gradient(45deg, #60a5fa, #f472b6)',
-                                    WebkitBackgroundClip: 'text',
-                                    WebkitTextFillColor: 'transparent',
-                                    backgroundClip: 'text'
-                                  } : {}}>
-                                    Coming Soon{model.id === 'v2' ? '...' : ''}
-                                  </span>
-                                </div>
-                              )}
-                              {selectedModel === model.id && model.available && (
-                                <Check size={14} className="text-green-500" />
-                              )}
-                            </div>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  )}
                 </div>
 
                 {/* Send Button */}
