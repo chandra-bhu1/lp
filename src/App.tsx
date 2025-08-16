@@ -88,7 +88,7 @@ function App() {
         <div className="h-24"></div>
         
         {/* Title and Chat Input grouped together */}
-        <div className="w-full max-w-3xl mx-auto mb-32">
+        <div className="w-full max-w-3xl mx-auto mb-20">
           {/* Title positioned just above input */}
           <div className="text-center mb-6">
             <h2 className="text-4xl md:text-5xl font-semibold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent leading-tight pb-3">
