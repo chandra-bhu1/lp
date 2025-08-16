@@ -134,7 +134,7 @@ function App() {
                 </div>
 
                 {/* Model Selector */}
-                <div className="flex-shrink-0 relative">
+                <div className="flex-shrink-0 relative z-50">
                   <button
                     onClick={() => setShowModelSelector(!showModelSelector)}
                     className="flex items-center justify-center w-10 h-10 bg-gray-700/50 hover:bg-gray-600/50 rounded-lg transition-colors"
@@ -143,7 +143,7 @@ function App() {
                   </button>
 
                   {showModelSelector && (
-                    <div className="absolute top-full mt-2 right-0 bg-gray-800/95 backdrop-blur-sm rounded-lg border border-gray-600/50 shadow-xl min-w-48 z-20">
+                    <div className="absolute top-full mt-2 right-0 bg-gray-800/95 backdrop-blur-sm rounded-lg border border-gray-600/50 shadow-xl min-w-48 z-[100]">
                       <div className="p-3 border-b border-gray-600/50">
                         <h3 className="font-medium text-sm text-gray-300">Select Model</h3>
                       </div>
