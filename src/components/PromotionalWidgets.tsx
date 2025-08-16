@@ -6,21 +6,25 @@ const widgetData = [
     icon: <Code2 size={24} className="text-blue-400" />,
     title: 'AI Powered DSA Masterclass',
     subtitle: 'Master Data Structures &amp; Algorithms with AI-guided lessons',
+    buttonText: 'Begin Journey',
   },
   {
     icon: <Network size={24} className="text-purple-400" />,
     title: 'Crack System Design interviews',
     subtitle: 'Practice real mock interviews &amp; sharpen your design skills',
+    buttonText: 'Explore Now',
   },
   {
     icon: <LayoutTemplate size={24} className="text-pink-400" />,
     title: 'Vibe-code Full-Stack web applications',
     subtitle: 'Generate and customize websites instantly with AI',
+    buttonText: "Let's go",
   },
   {
     icon: <Sparkles size={24} className="text-green-400" />,
     title: 'Analyze your progress...',
     subtitle: 'Your AI mentor analyzes your progress and gives you personalized feedback.',
+    buttonText: 'Unlock Access',
   },
 ];
 
@@ -41,7 +45,7 @@ const PromotionalWidgets = () => {
               <p className="text-sm text-gray-400">{widget.subtitle}</p>
             </div>
             <button className="text-xs font-semibold text-gray-400 bg-gray-800/70 px-3 py-1.5 rounded-full transition-colors hover:bg-gray-700/90 hover:text-white flex items-center space-x-1.5 flex-shrink-0">
-              <span>Preview</span>
+              <span>{widget.buttonText}</span>
               <ArrowRight size={12} />
             </button>
           </div>

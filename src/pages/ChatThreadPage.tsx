@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Send } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 export const BACKEND_URL = "http://34.131.157.210:8080";
 
@@ -141,7 +142,7 @@ function ChatThreadPage() {
             {/* Header */}
             <header className="flex items-center justify-between p-4 border-b border-gray-700/50">
                 <button onClick={() => navigate('/')} className="p-2 hover:bg-gray-800/50 rounded-lg transition-colors"><ArrowLeft size={20} /></button>
-                <h1 className="text-lg font-medium">Chat Thread</h1>
+                <img src={logo} alt="NaySigma Logo" className="h-8" />
                 <div className="w-10" /> {/* Spacer */}
             </header>
 

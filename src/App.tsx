@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { 
   Paperclip, 
   Settings, 
-  Menu, 
   Atom,
   ArrowUp,
   Check
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import PromotionalWidgets from './components/PromotionalWidgets';
+import logo from './assets/logo.png';
 
 function App() {
   const [selectedModel, setSelectedModel] = useState('v1.5');
@@ -64,7 +64,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white relative">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white relative flex flex-col">
       {/* Model Selector Dropdown - Positioned at top level */}
       {showModelSelector && (
         <div className="fixed inset-0 z-[9999]" onClick={() => setShowModelSelector(false)}>
@@ -137,21 +137,19 @@ function App() {
       )}
 
       {/* Header */}
-      <header className="flex items-center justify-between p-4 border-b border-gray-700/50">
-        <div className="flex items-center space-x-3">
-          <button className="p-2 hover:bg-gray-800/50 rounded-lg transition-colors">
-            <Menu size={20} />
-          </button>
-          <h1 className="text-lg font-medium">Project Stealth</h1>
-        </div>
-        
-        <div className="flex items-center space-x-3">
-          <button className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center space-x-2 shadow-lg hover:shadow-xl">
-            <Atom size={16} />
-            <span>Join v2 Waitlist</span>
-          </button>
-        </div>
-      </header>
+      {/* Header */}
+<header className="flex items-center justify-between p-4 border-b border-gray-700/50 h-20 overflow-hidden">
+  <div className="flex items-center">
+    <img src={logo} alt="NaySigma Logo" className="h-50 max-w-48 object-contain scale-[1.6]" />
+  </div>
+  
+  <div className="flex items-center space-x-3">
+    <button className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center space-x-2 shadow-lg hover:shadow-xl">
+      <Atom size={16} />
+      <span>Join v2 Waitlist</span>
+    </button>
+  </div>
+</header>
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col items-center justify-start px-4 py-16 min-h-[calc(100vh-80px)]">
@@ -242,6 +240,11 @@ function App() {
           <PromotionalWidgets />
         </div>
       </main>
+
+      {/* Footer with fixed height to avoid size changes */}
+      <footer className="w-full h-16 bg-gray-900 text-white flex items-center justify-center overflow-hidden">
+        <span className="text-sm">© 2025 NaySigma. All rights reserved.</span>
+      </footer>
     </div>
   );
 }
