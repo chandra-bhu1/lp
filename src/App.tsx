@@ -69,7 +69,7 @@ function App() {
       {showModelSelector && (
         <div className="fixed inset-0 z-[9999]" onClick={() => setShowModelSelector(false)}>
           <div 
-            className="absolute top-[180px] right-[calc(50%-384px+60px)] bg-gray-800/95 backdrop-blur-sm rounded-lg border border-gray-600/50 shadow-xl min-w-48"
+            className="absolute top-[220px] right-[calc(50%-384px+60px)] bg-gray-800/95 backdrop-blur-sm rounded-lg border border-gray-600/50 shadow-xl min-w-48"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-3 border-b border-gray-600/50">
