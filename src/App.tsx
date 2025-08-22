@@ -148,9 +148,6 @@ function App() {
       <Atom size={16} />
       <span>Join v2 Waitlist</span>
     </button>
-    <button className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl">
-      <span>Login</span>
-    </button>
   </div>
 </header>
 
