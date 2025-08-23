@@ -148,6 +148,12 @@ function App() {
       <Atom size={16} />
       <span>Join v2 Waitlist</span>
     </button>
+    <button 
+      onClick={() => navigate('/login')}
+      className="bg-gray-800/80 hover:bg-gray-700/80 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border border-gray-600/50 hover:border-gray-500/50"
+    >
+      Sign In
+    </button>
   </div>
 </header>
 
