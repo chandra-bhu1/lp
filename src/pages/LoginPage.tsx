@@ -95,7 +95,7 @@ function LoginPage() {
         <div className="relative z-10 w-full max-w-md animate-fade-in" style={{ animationDelay: '600ms', animationFillMode: 'both' }}>
           {/* Welcome Text */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white leading-tight font-sans">
+            <h1 className="text-4xl md:text-5xl font mb-4 text-white leading-tight font-sans">
               Welcome back
             </h1>
             <p className="text-lg text-gray-400 font-sans">
